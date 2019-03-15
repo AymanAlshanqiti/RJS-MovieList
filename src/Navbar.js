@@ -1,16 +1,17 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-dark">
-        <a href="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand">
           Not IMDB
-        </a>
+        </Link>
         <div className="navbar">
-          <a href="/mylist" className="nav-item nav-link text-light">
+          <Link to="/mylist" className="nav-item nav-link text-light">
             My List
-          </a>
+          </Link>
         </div>
       </nav>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 // Data
 import movies from "./data";
@@ -15,6 +16,21 @@ class App extends Component {
     return (
       <div className="bg-light">
         <Navbar />
+        <Switch>
+          <Route path="/mylist" component={MyList} />
+          <Route
+            exact
+            path="/movies/:movieId"
+            render={props => <MovieDetails {...props} />}
+          />
+          <Route path="/not-found" render={props => <h1>Not found</h1>} />
+          <Route
+            exact
+            path="/"
+            render={props => <MoviesList movies={movies} />}
+          />
+          <Redirect to="/not-found" />
+        </Switch>
       </div>
     );
   }
